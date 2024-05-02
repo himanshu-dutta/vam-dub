@@ -1,0 +1,38 @@
+#! /bin/bash
+
+python /home/visual-acoustic-matching/vam/inference.py \
+    --model-dir /home/checkpoints/vam/pretrained-models/avspeech \
+    --version avitar \
+    --model generative_avitar \
+    --batch-size 16 \
+    --num-encoder-layers 4 \
+    --n-gpus 8 \
+    --num-node 4 \
+    --use-rgb \
+    --gpu-mem32 \
+    --acoustic-matching \
+    --use-cnn \
+    --pretrained-cnn \
+    --dropout 0 \
+    --log10 \
+    --decode-wav \
+    --hop-length 128 \
+    --auto-resume \
+    --slurm \
+    --encode-wav \
+    --use-visual-pe \
+    --encoder-residual-layers 0 \
+    --decoder-residual-layers 0 \
+    --generator-lr 0.0005 \
+    --use-avspeech \
+    --num-worker 3 \
+    --dereverb-avspeech \
+    --use-da --use-vida \
+    --use-audio-da \
+    --read-mp4 \
+    --adaptive-pool \
+    --test \
+    --eval-best \
+    --input-audio $1 \
+    --input-image $2 \
+    --output-audio $3 
