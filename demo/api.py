@@ -40,7 +40,9 @@ async def upload(files: List[UploadFile] = File(...)):
 
     # translation
     trans_path = f"/home/uploads/{files_id}_trans.wav"
-    subprocess.call(["python", "/home/src/s2st.py", "-i", audio_path, "-o", trans_path])
+    subprocess.call(
+        ["python", "/home/demo/s2st.py", "-i", audio_path, "-o", trans_path]
+    )
 
     # acoustic matching
     pred_path = f"/home/uploads/{files_id}_pred.wav"
